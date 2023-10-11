@@ -128,11 +128,48 @@ export function Home() {
           ) : (
             <>
               <div className="ml-10 mt-10 bg-gray-200 h-3/4 w-3/4">
-                <form action="" className="flex gap-2">
-                  <input type="text" placeholder="Task Name" />
+                <form
+                  className="flex gap-2"
+                  onSubmit={(event, successCallback) => {
+                    event.preventDefault();
+                    let formParams = new FormData(event.target);
+                    axios.patch(`http://localhost:3000/todos/${currentId}.json`, formParams).then((response) => {
+                      console.log(response);
+                      window.location.href = "/";
+                      successCallback();
+                    });
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Task Name"
+                    className="bg-gray-200 mb-1 rounded-lg p-2 text-black"
+                  />
                   <br />
-                  <textarea placeholder="Note" />
+
+                  <textarea
+                    name="note"
+                    id="text1"
+                    placeholder="note"
+                    className="bg-gray-200 text-black rounded-lg p-2"
+                  />
+                  <br />
+                  <label htmlFor="nc">Not Complete </label>
+                  <input id="nc" type="checkbox" className="ml-1 mr-1" name="status" value={"not complete"} />
+                  <label htmlFor="comp" className="ml-1 mr-1">
+                    Complete{" "}
+                  </label>
+                  <input id="comp" type="checkbox" name="status" value={"complete"} className="ml-1 mr-1" />
+                  <br />
+                  <br />
+                  <input type="date" name="date" className="mb-1" />
+                  <br />
+                  <button className="bg-gray-300 rounded-md w-20" type="submit">
+                    submit
+                  </button>
                 </form>
+
                 <button
                   className="bg-gray-100 w-16 rounded-lg mt-1"
                   onClick={() => {
