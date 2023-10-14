@@ -33,11 +33,6 @@ export function Home() {
 
   useEffect(handleTodosIndex, []);
 
-  const editNotCheckbox = document.getElementById("editNC");
-
-  const editCompleteCheckbox = document.getElementById("editComp");
-
-
   return (
     <div className="bg-slate-700 h-auto min-h-screen w-screen">
       <div className="">
@@ -169,11 +164,6 @@ export function Home() {
                     className="bg-gray-200 text-black rounded-lg p-2"
                   />
                   <br />
-                  {
-                    if (currentTodo.status === "complete") {
-                      editCompleteCheckbox.value
-                    }
-                  }
                   <label htmlFor="nc">Not Complete </label>
                   <input id="editNC" type="checkbox" className="ml-1 mr-1" name="status" value={"not complete"} />
                   <label htmlFor="comp" className="ml-1 mr-1">
