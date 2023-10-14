@@ -4,6 +4,7 @@ import axios from "axios";
 export function Home() {
   const [currentId, setCurrentId] = useState();
   const [todos, setTodos] = useState([]);
+  const [currentTodo, setCurrentTodo] = useState([]);
   const [openField, setOpenField] = useState(false);
   const [updateField, setUpdateField] = useState(true);
 
@@ -23,7 +24,19 @@ export function Home() {
     });
   };
 
+  const handleTodoShow = (id) => {
+    axios.get(`http://localhost:3000/todos/${id}`).then((response) => {
+      console.log(response.data);
+      setCurrentTodo(response.data);
+    });
+  };
+
   useEffect(handleTodosIndex, []);
+
+  const editNotCheckbox = document.getElementById("editNC");
+
+  const editCompleteCheckbox = document.getElementById("editComp");
+
 
   return (
     <div className="bg-slate-700 h-auto min-h-screen w-screen">
@@ -106,6 +119,7 @@ export function Home() {
                     onClick={() => {
                       setUpdateField(false);
                       setCurrentId(todo.id);
+                      handleTodoShow(todo.id);
                     }}
                   >
                     Edit
@@ -143,27 +157,32 @@ export function Home() {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Task Name"
+                    defaultValue={currentTodo.name}
                     className="bg-gray-200 mb-1 rounded-lg p-2 text-black"
                   />
+                  ;
                   <br />
-
                   <textarea
                     name="note"
                     id="text1"
-                    placeholder="note"
+                    defaultValue={currentTodo.note}
                     className="bg-gray-200 text-black rounded-lg p-2"
                   />
                   <br />
+                  {
+                    if (currentTodo.status === "complete") {
+                      editCompleteCheckbox.value
+                    }
+                  }
                   <label htmlFor="nc">Not Complete </label>
-                  <input id="nc" type="checkbox" className="ml-1 mr-1" name="status" value={"not complete"} />
+                  <input id="editNC" type="checkbox" className="ml-1 mr-1" name="status" value={"not complete"} />
                   <label htmlFor="comp" className="ml-1 mr-1">
                     Complete{" "}
                   </label>
-                  <input id="comp" type="checkbox" name="status" value={"complete"} className="ml-1 mr-1" />
+                  <input id="editComp" type="checkbox" name="status" value={"complete"} className="ml-1 mr-1" />
                   <br />
                   <br />
-                  <input type="date" name="date" className="mb-1" />
+                  <input type="date" name="date" className="mb-1" defaultValue={currentTodo.date} />
                   <br />
                   <button className="bg-gray-300 rounded-md w-20" type="submit">
                     submit
