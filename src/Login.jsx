@@ -29,7 +29,7 @@ export function Login() {
   };
 
   return (
-    <div id="login">
+    <div id="login" className="w-screen h-auto min-h-screen">
       <h1>Login</h1>
       <ul>
         {errors.map((error) => (
@@ -38,12 +38,14 @@ export function Login() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Email: <input name="email" type="email" />
+          Email: <input className="border-black border-2 rounded-md" name="email" type="email" />
         </div>
         <div>
-          Password: <input name="password" type="password" />
+          Password: <input className="border-black border-2 rounded-md" name="password" type="password" />
         </div>
-        <button type="submit">Login</button>
+        <button className="bg-gray-200 w-20 rounded-lg" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

@@ -20,7 +20,9 @@ export function Header() {
         </>
       ) : (
         <>
-          <LogoutLink />
+          <div className="w-24">
+            <LogoutLink />
+          </div>
         </>
       )}
     </div>
