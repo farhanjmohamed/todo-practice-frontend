@@ -87,9 +87,9 @@ export function Home() {
               </>
             ) : (
               <>
-                <div>
+                <div className="flex justify-center">
                   <button
-                    className="mx-auto mt-10 text-white w-24 rounded-lg bg-slate-600"
+                    className="text-center mt-10 text-white w-24 rounded-lg bg-slate-600"
                     onClick={() => {
                       setOpenField(true);
                     }}
@@ -100,7 +100,7 @@ export function Home() {
               </>
             )}
 
-            <div className="grid grid-cols-1 auto-cols-auto">
+            <div className="grid grid-cols-1 auto-cols-auto p-4">
               {updateField ? (
                 <>
                   {todos.map((todo) => (
