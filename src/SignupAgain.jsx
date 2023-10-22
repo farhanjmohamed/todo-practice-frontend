@@ -1,8 +1,8 @@
 export function SignupAgain() {
   return (
-    <section className="bg-gray-100">
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-12 bg-slate-200">
-        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+    <section>
+      <div className="lg:grid lg:min-h-screen lg:grid-cols-auto bg-slate-200">
+        <main className="bg-blue-600 flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
           <form action="#" className="mt-8 grid grid-cols-6 gap-6">
             <div className="col-span-6">
               <label htmlFor="Name" className="block text-sm font-medium text-gray-700">
@@ -64,7 +64,7 @@ export function SignupAgain() {
                 Create an account
               </button>
 
-              <p className="mt-4 text-sm text-gray-500 sm:mt-0">
+              <p className="mt-4 text-sm text-slate-600 sm:mt-0">
                 Already have an account?
                 <br />
                 <a href="/login" className="text-gray-700 underline">
