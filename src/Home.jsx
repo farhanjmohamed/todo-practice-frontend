@@ -38,7 +38,7 @@ export function Home() {
       {localStorage.jwt === undefined ? (
         <>
           <div>
-            <p>sign in to see content</p>
+            <p className="text-center text-4xl text-white">sign in to see content</p>
           </div>
         </>
       ) : (
