@@ -34,11 +34,11 @@ export function Home() {
   useEffect(handleTodosIndex, []);
 
   return (
-    <div className="bg-slate-700 h-auto min-h-screen w-screen">
+    <div className="  h-auto min-h-screen w-screen">
       {localStorage.jwt === undefined ? (
         <>
-          <div>
-            <p className="text-center text-4xl text-white">sign in to see content</p>
+          <div className="flex justify-center pt-96">
+            <p className="text-center text-4xl font-bold text-white">sign in to see content</p>
           </div>
         </>
       ) : (

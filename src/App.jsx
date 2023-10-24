@@ -8,7 +8,7 @@ import { SignupAgain } from "./SignupAgain";
 
 function App() {
   return (
-    <div>
+    <div className="dark:bg-slate-700 dark:text-white bg-slate-50 text-black overflow-hidden">
       <Header />
       <BrowserRouter>
         <Routes>

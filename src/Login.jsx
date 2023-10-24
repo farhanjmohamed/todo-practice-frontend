@@ -20,7 +20,7 @@ export function Login() {
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
         event.target.reset();
-        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
+        window.location.href = "/";
       })
       .catch((error) => {
         console.log(error.response);
@@ -29,24 +29,26 @@ export function Login() {
   };
 
   return (
-    <div id="login" className="w-screen h-auto min-h-screen">
-      <h1>Login</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input className="border-black border-2 rounded-md" name="email" type="email" />
-        </div>
-        <div>
-          Password: <input className="border-black border-2 rounded-md" name="password" type="password" />
-        </div>
-        <button className="bg-gray-200 w-20 rounded-lg" type="submit">
-          Login
-        </button>
-      </form>
+    <div className="w-screen h-auto min-h-screen">
+      <div id="login" className="">
+        <h1>Login</h1>
+        <ul>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+        <form onSubmit={handleSubmit}>
+          <div>
+            Email: <input className="border-black border-2 rounded-md" name="email" type="email" />
+          </div>
+          <div>
+            Password: <input className="border-black border-2 rounded-md" name="password" type="password" />
+          </div>
+          <button className="bg-gray-200 w-20 rounded-lg" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
