@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Login } from "./Login";
 import axios from "axios";
 
 export function Home() {
@@ -37,9 +38,7 @@ export function Home() {
     <div className="  h-auto min-h-screen w-screen">
       {localStorage.jwt === undefined ? (
         <>
-          <div className="flex justify-center pt-96">
-            <p className="text-center text-4xl font-bold text-white">sign in to see content</p>
-          </div>
+          <Login />
         </>
       ) : (
         <>

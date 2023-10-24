@@ -13,14 +13,11 @@ export function Header() {
             <a className=" bg-red-700 w-16 text-center text-white rounded-lg " href="/signup">
               Signup
             </a>
-            <a className=" ml-2 bg-red-700 w-16 text-center text-white rounded-lg" href="/login">
-              Login
-            </a>
           </div>
         </>
       ) : (
         <>
-          <div className="w-24">
+          <div className="flex justify-end pr-2 pb-2">
             <LogoutLink />
           </div>
         </>

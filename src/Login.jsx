@@ -30,21 +30,29 @@ export function Login() {
 
   return (
     <div className="w-screen h-auto min-h-screen">
-      <div id="login" className="">
+      <div id="login" className="text-white flex items-left">
+        <br />
         <h1>Login</h1>
+        <br />
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
         <form onSubmit={handleSubmit}>
-          <div>
-            Email: <input className="border-black border-2 rounded-md" name="email" type="email" />
+          <div className="mx-auto">
+            Email:{" "}
+            <input className="border-black bg-slate-200 text-black border-2 rounded-md" name="email" type="email" />
           </div>
           <div>
-            Password: <input className="border-black border-2 rounded-md" name="password" type="password" />
+            Password:{" "}
+            <input
+              className="border-black bg-slate-200 text-black border-2 rounded-md"
+              name="password"
+              type="password"
+            />
           </div>
-          <button className="bg-gray-200 w-20 rounded-lg" type="submit">
+          <button className="bg-gray-400 w-20  text-black rounded-lg" type="submit">
             Login
           </button>
         </form>
