@@ -10,7 +10,7 @@ export function Home() {
   const [updateField, setUpdateField] = useState(true);
 
   const handleTodosIndex = () => {
-    axios.get("http://localhost:3000/todos").then((response) => {
+    axios.get("http://localhost:3000/todos.json").then((response) => {
       console.log(response.data);
       setTodos(response.data);
     });
@@ -19,14 +19,14 @@ export function Home() {
   const handleTodoPost = (e) => {
     e.preventDefault();
     let params = new FormData(e.target);
-    axios.post("http://localhost:3000/todos", params).then((response) => {
+    axios.post("http://localhost:3000/todos.json", params).then((response) => {
       window.location.href = "/";
       console.log(response.data);
     });
   };
 
   const handleTodoShow = (id) => {
-    axios.get(`http://localhost:3000/todos/${id}`).then((response) => {
+    axios.get(`http://localhost:3000/todos/${id}.json`).then((response) => {
       console.log(response.data);
       setCurrentTodo(response.data);
     });
@@ -110,7 +110,7 @@ export function Home() {
                       </div>
                       <div className="flex gap-4">
                         <p>Date: </p>
-                        <p>{todo.date}</p>
+                        <p>{todo.formatted_date}</p>
                       </div>
                       <div className="flex gap-4">
                         <p>Status:</p>
